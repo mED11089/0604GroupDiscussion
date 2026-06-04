@@ -1,0 +1,222 @@
+/* =========================================================
+   異位性皮膚炎全身性治療 SDM 指引 — 自訂樣式
+   Tailwind 由 CDN 提供，此檔僅補充無法以 utility class 表達的樣式。
+   主色：primary #1e40af（深藍）/ accent #0891b2（青色）
+   ========================================================= */
+
+:root {
+  --color-primary: #1e40af;
+  --color-accent: #0891b2;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  text-wrap: pretty;
+}
+
+/* 平滑錨點捲動時，為固定 navbar 預留空間 */
+:target {
+  scroll-margin-top: 5rem;
+}
+
+/* 自訂捲軸（深藍-青色漸層感） */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--color-primary), var(--color-accent));
+  border-radius: 9999px;
+}
+
+/* 醫療風漸層標題文字 */
+.text-gradient {
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* =========================================================
+   Navbar：初始透明（疊在深藍 hero 上，文字為白）；
+   捲動後加上 .scrolled → 白底、陰影、深色文字。
+   ========================================================= */
+#navbar .nav-logo,
+#navbar .nav-link {
+  color: #ffffff;
+}
+#navbar .nav-link:hover {
+  color: #a5f3fc; /* cyan-200 */
+}
+
+#navbar.scrolled {
+  background-color: #ffffff;
+  box-shadow: 0 4px 16px -4px rgba(15, 23, 42, 0.12);
+}
+#navbar.scrolled .nav-logo {
+  color: var(--color-primary);
+}
+#navbar.scrolled .nav-link {
+  color: #334155; /* slate-700 */
+}
+#navbar.scrolled .nav-link:hover {
+  color: var(--color-accent);
+}
+
+/* =========================================================
+   Tabs（治療選項分類切換）
+   ========================================================= */
+.tab-btn {
+  border-radius: 9999px;
+  padding: 0.625rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  background-color: #f1f5f9; /* slate-100 */
+  color: #475569; /* slate-600 */
+  transition: all 0.2s ease;
+}
+.tab-btn:hover {
+  background-color: #e2e8f0; /* slate-200 */
+}
+.tab-btn.tab-active {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  box-shadow: 0 6px 16px -4px rgba(30, 64, 175, 0.45);
+}
+
+/* =========================================================
+   Accordion（藥物卡「了解更多」）
+   ========================================================= */
+.accordion-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+.accordion-icon {
+  transition: transform 0.3s ease;
+}
+.accordion-trigger.is-open .accordion-icon {
+  transform: rotate(180deg);
+}
+
+/* =========================================================
+   比較表篩選按鈕
+   ========================================================= */
+.filter-btn {
+  border-radius: 9999px;
+  padding: 0.5rem 1.1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #475569; /* slate-600 */
+  background-color: #f1f5f9; /* slate-100 */
+  transition: all 0.2s ease;
+}
+.filter-btn:hover {
+  background-color: #e2e8f0;
+}
+.filter-btn.filter-active {
+  background-color: var(--color-accent);
+  color: #ffffff;
+  box-shadow: 0 6px 16px -4px rgba(8, 145, 178, 0.45);
+}
+
+/* =========================================================
+   個案矩陣：因子高亮 / 欄位淡出
+   ========================================================= */
+.matrix-dim {
+  opacity: 0.2;
+}
+.matrix-factor-active {
+  background-color: #eff6ff; /* blue-50 */
+  box-shadow: inset 3px 0 0 0 var(--color-primary);
+}
+
+/* =========================================================
+   深色模式（prefers-color-scheme）
+   - Section 6/7 與 footer 使用 Tailwind `dark:` variants（media 預設）。
+   - Section 1–5 標記 .dark-fallback，於此集中重新著色其中性與色票 utility。
+   - 選擇器特異度（0,2,0）高於原生 utility，且不含萬用字元、無欄位碰撞。
+   ========================================================= */
+@media (prefers-color-scheme: dark) {
+  html { background-color: #0f172a; }
+  body.bg-white { background-color: #0f172a; }
+  body.text-slate-800 { color: #e2e8f0; }
+
+  /* --- Navbar（位於 section 之外，需單獨處理）--- */
+  #navbar.scrolled { background-color: #0f172a; box-shadow: 0 4px 16px -4px rgba(0, 0, 0, 0.6); }
+  #navbar.scrolled .nav-logo { color: #93c5fd; }
+  #navbar.scrolled .nav-link { color: #cbd5e1; }
+  #mobile-menu { background-color: #0f172a; border-color: #1e293b; }
+  #mobile-menu a { color: #cbd5e1; }
+  #mobile-menu a:hover { background-color: #1e293b; }
+
+  /* --- 中性表面 --- */
+  .dark-fallback .bg-white,
+  .dark-fallback .bg-white\/70 { background-color: #1e293b; }
+  .dark-fallback .bg-slate-100 { background-color: #1e293b; }
+  .dark-fallback .bg-slate-50,
+  .dark-fallback .bg-slate-50\/80 { background-color: #0f172a; }
+
+  /* --- 邊框 --- */
+  .dark-fallback .border-slate-100 { border-color: #334155; }
+  .dark-fallback .border-slate-200 { border-color: #334155; }
+
+  /* --- 中性文字 --- */
+  .dark-fallback .text-slate-800 { color: #f1f5f9; }
+  .dark-fallback .text-slate-700 { color: #e2e8f0; }
+  .dark-fallback .text-slate-600 { color: #cbd5e1; }
+  .dark-fallback .text-slate-500 { color: #94a3b8; }
+  .dark-fallback .text-slate-400,
+  .dark-fallback .text-slate-300 { color: #94a3b8; }
+
+  /* --- 色票背景（同色系、低透明度，維持語意色彩）--- */
+  .dark-fallback .bg-blue-50,   .dark-fallback .bg-blue-50\/60   { background-color: rgba(59, 130, 246, 0.16); }
+  .dark-fallback .bg-sky-50                                       { background-color: rgba(14, 165, 233, 0.16); }
+  .dark-fallback .bg-cyan-50,   .dark-fallback .bg-cyan-50\/60   { background-color: rgba(8, 145, 178, 0.18); }
+  .dark-fallback .bg-indigo-50, .dark-fallback .bg-indigo-50\/60 { background-color: rgba(99, 102, 241, 0.16); }
+  .dark-fallback .bg-emerald-50,.dark-fallback .bg-emerald-50\/70{ background-color: rgba(16, 185, 129, 0.16); }
+  .dark-fallback .bg-amber-50,  .dark-fallback .bg-amber-50\/60,
+  .dark-fallback .bg-amber-100                                    { background-color: rgba(245, 158, 11, 0.16); }
+  .dark-fallback .bg-orange-50, .dark-fallback .bg-orange-50\/60 { background-color: rgba(249, 115, 22, 0.16); }
+  .dark-fallback .bg-red-50,    .dark-fallback .bg-red-50\/40,
+  .dark-fallback .bg-red-50\/50,.dark-fallback .bg-red-50\/60,
+  .dark-fallback .bg-red-100                                      { background-color: rgba(239, 68, 68, 0.15); }
+  .dark-fallback .bg-rose-50,   .dark-fallback .bg-rose-50\/60   { background-color: rgba(244, 63, 94, 0.16); }
+  .dark-fallback .bg-purple-50, .dark-fallback .bg-purple-50\/60 { background-color: rgba(168, 85, 247, 0.16); }
+
+  /* --- 色票標籤文字（提亮以維持對比）--- */
+  .dark-fallback .text-primary { color: #93c5fd; }
+  .dark-fallback .text-accent  { color: #67e8f9; }
+  .dark-fallback .text-blue-600,   .dark-fallback .text-blue-700   { color: #93c5fd; }
+  .dark-fallback .text-sky-600,    .dark-fallback .text-sky-700    { color: #7dd3fc; }
+  .dark-fallback .text-cyan-600,   .dark-fallback .text-cyan-700   { color: #67e8f9; }
+  .dark-fallback .text-indigo-600, .dark-fallback .text-indigo-700 { color: #a5b4fc; }
+  .dark-fallback .text-emerald-600,.dark-fallback .text-emerald-700{ color: #6ee7b7; }
+  .dark-fallback .text-amber-600,  .dark-fallback .text-amber-700,
+  .dark-fallback .text-amber-800                                   { color: #fcd34d; }
+  .dark-fallback .text-orange-600, .dark-fallback .text-orange-700 { color: #fdba74; }
+  .dark-fallback .text-red-600,    .dark-fallback .text-red-700    { color: #fca5a5; }
+  .dark-fallback .text-rose-600,   .dark-fallback .text-rose-700   { color: #fda4af; }
+  .dark-fallback .text-purple-600, .dark-fallback .text-purple-700 { color: #d8b4fe; }
+
+  /* --- 元件：tab / filter / matrix --- */
+  .dark-fallback .tab-btn { background-color: #1e293b; color: #cbd5e1; }
+  .dark-fallback .tab-btn:hover { background-color: #334155; }
+  .dark-fallback .filter-btn { background-color: #1e293b; color: #cbd5e1; }
+  .dark-fallback .filter-btn:hover { background-color: #334155; }
+  .dark-fallback .matrix-factor:hover { background-color: #1e293b; }
+  .dark-fallback .matrix-factor-active { background-color: rgba(59, 130, 246, 0.18); }
+}
+
+/* 尊重使用者減少動態偏好設定 */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  [data-aos] {
+    transition: none !important;
+    transform: none !important;
+  }
+}

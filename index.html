@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ===== Primary SEO Meta ===== -->
+  <title>異位性皮膚炎全身性治療 SDM 指引</title>
+  <meta name="description" content="異位性皮膚炎（AD）全身性治療選項與 Shared Decision-Making（SDM）醫學教育網站：涵蓋 biologics、JAK inhibitors、傳統免疫調節劑之機轉、療效與安全性，以及個案化共享決策。" />
+  <meta name="keywords" content="異位性皮膚炎, atopic dermatitis, 全身性治療, dupilumab, JAK inhibitor, biologics, shared decision-making, SDM, 醫學教育" />
+  <meta name="author" content="病理藥理小組討論 — 單元十四 皮膚系統疾病" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://med11089.github.io/0604GroupDiscussion/" />
+
+  <!-- ===== Open Graph ===== -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="zh_TW" />
+  <meta property="og:title" content="異位性皮膚炎全身性治療 SDM 指引" />
+  <meta property="og:description" content="異位性皮膚炎全身性治療選項與 Shared Decision-Making 醫學教育網站：機轉、療效、安全性與個案化共享決策。" />
+  <meta property="og:site_name" content="異位性皮膚炎全身性治療 SDM 指引" />
+  <meta property="og:url" content="https://med11089.github.io/0604GroupDiscussion/" />
+  <meta property="og:image" content="./images/og-cover.jpg" />
+
+  <!-- ===== Twitter Card ===== -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="異位性皮膚炎全身性治療 SDM 指引" />
+  <meta name="twitter:description" content="異位性皮膚炎全身性治療選項與 Shared Decision-Making 醫學教育網站。" />
+  <meta name="twitter:image" content="./images/og-cover.jpg" />
+
+  <!-- ===== Theme ===== -->
+  <meta name="theme-color" content="#1e40af" />
+  <link rel="icon" type="image/svg+xml" href="./images/favicon.svg" />
+
+  <!-- ===== Fonts ===== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet" />
+
+  <!-- ===== Tailwind CSS (CDN) ===== -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // 自訂醫療主題配色：深藍 / 青色
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1e40af',   // 深藍
+            accent:  '#0891b2',    // 青色
+          },
+          fontFamily: {
+            sans: ['"Noto Sans TC"', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- ===== AOS.js — Scroll Animation (CDN) ===== -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
+
+  <!-- ===== Chart.js — Radar Chart (CDN) ===== -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js" defer></script>
+
+  <!-- ===== Site Styles ===== -->
+  <link rel="stylesheet" href="./src/css/style.css" />
+</head>
+
+<body class="bg-white text-slate-800 font-sans antialiased">
+
+  <!-- ===================== 閱讀進度條 ===================== -->
+  <div id="reading-progress" class="fixed left-0 top-0 z-[60] h-1 w-0 bg-blue-500"></div>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <header id="navbar" class="fixed inset-x-0 top-0 z-50 transition-all duration-300">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
+      <!-- Logo -->
+      <a href="#top" class="nav-logo text-xl font-black tracking-tight transition-colors">
+        AD 治療決策指引
+      </a>
+
+      <!-- 桌面導覽 -->
+      <ul class="hidden items-center gap-6 text-sm font-medium md:flex">
+        <li><a href="#case-intro" class="nav-link transition-colors">個案介紹</a></li>
+        <li><a href="#mechanism" class="nav-link transition-colors">病理機轉</a></li>
+        <li><a href="#treatments" class="nav-link transition-colors">治療選項</a></li>
+        <li><a href="#comparison" class="nav-link transition-colors">藥物比較</a></li>
+        <li><a href="#case-analysis" class="nav-link transition-colors">殷太太的選擇</a></li>
+        <li><a href="#sdm" class="nav-link transition-colors">SDM 建議</a></li>
+        <li><a href="#quiz" class="nav-link transition-colors">答題練習</a></li>
+      </ul>
+
+      <!-- 漢堡按鈕（手機） -->
+      <button id="nav-toggle" type="button" aria-label="開啟選單" aria-expanded="false"
+              aria-controls="mobile-menu"
+              class="nav-link md:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg">
+        <svg id="nav-icon-open" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="nav-icon-close" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M6 18L18 6" />
+        </svg>
+      </button>
+    </nav>
+
+    <!-- 手機選單 -->
+    <div id="mobile-menu" class="hidden border-t border-slate-200 bg-white md:hidden">
+      <ul class="mx-auto flex max-w-6xl flex-col px-4 py-2 text-sm font-medium text-slate-700">
+        <li><a href="#case-intro" class="block rounded-lg px-3 py-3 hover:bg-slate-50 hover:text-accent">個案介紹</a></li>
+        <li><a href="#mechanism" class="block rounded-lg px-3 py-3 hover:bg-slate-50 hover:text-accent">病理機轉</a></li>
+        <li><a href="#treatments" class="block rounded-lg px-3 py-3 hover:bg-slate-50 hover:text-accent">治療選項</a></li>
+        <li><a href="#comparison" class="block rounded-lg px-3 py-3 hover:bg-slate-50 hover:text-accent">藥物比較</a></li>
+        <li><a href="#case-analysis" class="block rounded-lg px-3 py-3 hover:bg-slate-50 hover:text-accent">殷太太的選擇</a></li>
+        <li><a href="#sdm" class="block rounded-lg px-3 py-3 hover:bg-slate-50 hover:text-accent">SDM 建議</a></li>
+        <li><a href="#quiz" class="block rounded-lg px-3 py-3 hover:bg-slate-50 hover:text-accent">答題練習</a></li>
+        <li><a href="#references" class="block rounded-lg px-3 py-3 hover:bg-slate-50 hover:text-accent">參考文獻</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ===================== MAIN ===================== -->
+  <main id="top">
+
+    <!-- ========== HERO ========== -->
+    <section class="relative flex min-h-screen items-center overflow-hidden bg-gradient-to-br from-blue-900 to-cyan-800 text-white">
+      <!-- AD 致病機轉示意圖（極淡裝飾背景） -->
+      <img src="/images/ad-pathogenesis.webp"
+           alt=""
+           aria-hidden="true"
+           class="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.08] mix-blend-luminosity" />
+      <!-- 漸層覆蓋，確保文字可讀 -->
+      <div class="pointer-events-none absolute inset-0 bg-gradient-to-br from-blue-900/80 to-cyan-800/80"></div>
+      <!-- 細微醫療圖案背景（SVG pattern） -->
+      <svg class="pointer-events-none absolute inset-0 h-full w-full opacity-[0.07]" aria-hidden="true">
+        <defs>
+          <pattern id="medical-cross" width="44" height="44" patternUnits="userSpaceOnUse">
+            <path d="M19 13h6v6h6v6h-6v6h-6v-6h-6v-6h6z" fill="#ffffff" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#medical-cross)" />
+      </svg>
+      <!-- 漸暈底部，讓接續區塊過渡自然 -->
+      <div class="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-blue-950/40 to-transparent"></div>
+
+      <div class="relative mx-auto w-full max-w-6xl px-4 py-28 text-center">
+        <p data-aos="fade-up" class="mb-4 inline-block rounded-full bg-white/10 px-4 py-1 text-sm font-medium text-cyan-100 ring-1 ring-white/20">
+          病理藥理小組討論・單元十四 皮膚系統疾病
+        </p>
+        <h1 data-aos="fade-up" data-aos-delay="80" class="text-4xl font-black leading-tight sm:text-5xl md:text-6xl">
+          異位性皮膚炎的全身性治療
+        </h1>
+        <p data-aos="fade-up" data-aos-delay="160" class="mx-auto mt-5 max-w-2xl text-lg text-blue-100 sm:text-xl">
+          以殷太太為例的 Shared Decision-Making 建議
+        </p>
+
+        <!-- 個案數據卡片（countUp） -->
+        <div class="mx-auto mt-12 grid max-w-3xl grid-cols-1 gap-4 sm:grid-cols-3">
+          <div data-aos="fade-up" data-aos-delay="240"
+               class="rounded-2xl bg-white/10 p-6 ring-1 ring-white/20 backdrop-blur">
+            <div class="text-4xl font-black">
+              <span class="count-up" data-count-target="684" data-count-decimals="0">0</span><span class="text-xl font-bold text-cyan-200"> U/mL</span>
+            </div>
+            <div class="mt-2 text-sm font-semibold text-cyan-200">血清 IgE</div>
+            <div class="mt-1 text-xs text-blue-100/80">高 type-2 體質</div>
+          </div>
+
+          <div data-aos="fade-up" data-aos-delay="320"
+               class="rounded-2xl bg-white/10 p-6 ring-1 ring-white/20 backdrop-blur">
+            <div class="text-4xl font-black">
+              <span class="count-up" data-count-target="53.2" data-count-decimals="1">0</span><span class="text-xl font-bold text-cyan-200"> mL/min</span>
+            </div>
+            <div class="mt-2 text-sm font-semibold text-cyan-200">eGFR</div>
+            <div class="mt-1 text-xs text-blue-100/80">輕度腎功能不全</div>
+          </div>
+
+          <div data-aos="fade-up" data-aos-delay="400"
+               class="rounded-2xl bg-white/10 p-6 ring-1 ring-white/20 backdrop-blur">
+            <div class="text-4xl font-black">
+              <span class="count-up" data-count-target="10.2" data-count-decimals="1">0</span><span class="text-xl font-bold text-cyan-200"> %</span>
+            </div>
+            <div class="mt-2 text-sm font-semibold text-cyan-200">Eosinophils</div>
+            <div class="mt-1 text-xs text-blue-100/80">明顯 eosinophilia</div>
+          </div>
+        </div>
+
+        <!-- 向下箭頭 CTA -->
+        <div data-aos="fade-up" data-aos-delay="500" class="mt-14">
+          <a href="#case-intro"
+             class="group inline-flex flex-col items-center text-sm font-medium text-blue-100 transition hover:text-white"
+             aria-label="向下捲動至個案介紹">
+            <span>了解殷太太的個案</span>
+            <svg class="mt-2 h-8 w-8 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 個案輪廓摘要 ========== -->
+    <section id="case-intro" class="dark-fallback bg-slate-50 py-20">
+      <div class="mx-auto max-w-6xl px-4">
+
+        <div class="mx-auto max-w-3xl text-center">
+          <h2 data-aos="fade-up" class="text-3xl font-black text-slate-800 sm:text-4xl">
+            殷太太的<span class="text-gradient">個案輪廓</span>
+          </h2>
+          <p data-aos="fade-up" data-aos-delay="80" class="mt-4 text-slate-600">
+            78 歲女性，AD 反覆難控並已產生外用類固醇引起的皮膚萎縮。下列 8 項臨床特徵，
+            將共同決定她的全身性治療選擇。
+          </p>
+        </div>
+
+        <!-- 實驗室檢查數據表（源自教案）：置於個案輪廓內文與特徵卡片之間 -->
+        <div class="mt-12">
+          <p data-aos="fade-up" class="mx-auto max-w-3xl text-center text-sm text-slate-500">
+            升級全身性治療前的皮膚理學與血液檢查結果。<span class="font-semibold text-red-600">↑</span> 高於參考值、<span class="font-semibold text-amber-600">↓</span> 低於參考值。
+          </p>
+
+          <!-- 表一：血液常規 (CBC/DC) -->
+          <div data-aos="fade-up" data-aos-delay="120" class="mt-8 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+            <table class="w-full min-w-[760px] border-collapse text-center text-sm">
+              <caption class="bg-slate-50 px-4 py-2 text-left text-xs font-bold uppercase tracking-wide text-slate-500">血液常規 (CBC / Differential count)</caption>
+              <thead>
+                <tr class="bg-slate-50 text-xs font-bold text-slate-500">
+                  <th class="px-3 py-2 text-left">項目</th>
+                  <th class="px-3 py-2">WBC<br><span class="font-normal text-slate-400">K/μL</span></th>
+                  <th class="px-3 py-2">RBC<br><span class="font-normal text-slate-400">M/μL</span></th>
+                  <th class="px-3 py-2">Hb<br><span class="font-normal text-slate-400">g/dL</span></th>
+                  <th class="px-3 py-2">PLT<br><span class="font-normal text-slate-400">K/μL</span></th>
+                  <th class="px-3 py-2">Seg<br><span class="font-normal text-slate-400">%</span></th>
+                  <th class="px-3 py-2">Eos<br><span class="font-normal text-slate-400">%</span></th>
+                  <th class="px-3 py-2">Lym<br><span class="font-normal text-slate-400">%</span></th>
+                  <th class="px-3 py-2">Baso<br><span class="font-normal text-slate-400">%</span></th>
+                  <th class="px-3 py-2">Mono<br><span class="font-normal text-slate-400">%</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-t border-slate-100">
+                  <th class="px-3 py-3 text-left font-bold text-slate-700">檢驗值</th>
+                  <td class="px-3 py-3"><span class="font-bold text-red-600">10.53 ↑</span></td>
+                  <td class="px-3 py-3"><span class="font-bold text-amber-600">3.73 ↓</span></td>
+                  <td class="px-3 py-3 text-slate-700">11.4</td>
+                  <td class="px-3 py-3"><span class="font-bold text-red-600">407 ↑</span></td>
+                  <td class="px-3 py-3"><span class="font-bold text-red-600">78.3 ↑</span></td>
+                  <td class="px-3 py-3"><span class="rounded-md bg-red-50 px-2 py-1 font-black text-red-600">10.2 ↑</span></td>
+                  <td class="px-3 py-3"><span class="font-bold text-amber-600">8.0 ↓</span></td>
+                  <td class="px-3 py-3 text-slate-700">0.3</td>
+                  <td class="px-3 py-3"><span class="font-bold text-amber-600">3.2 ↓</span></td>
+                </tr>
+                <tr class="border-t border-slate-100 text-xs text-slate-400">
+                  <th class="px-3 py-2 text-left font-semibold">參考值</th>
+                  <td class="px-3 py-2">3.2–9.16</td>
+                  <td class="px-3 py-2">3.78–5.25</td>
+                  <td class="px-3 py-2">11.0–15.2</td>
+                  <td class="px-3 py-2">150–378</td>
+                  <td class="px-3 py-2">41.6–74.4</td>
+                  <td class="px-3 py-2">0.3–7.9</td>
+                  <td class="px-3 py-2">18.0–48.8</td>
+                  <td class="px-3 py-2">0.2–1.6</td>
+                  <td class="px-3 py-2">3.3–8.9</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- 表二：生化 / 免疫 -->
+          <div data-aos="fade-up" data-aos-delay="160" class="mt-6 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+            <table class="w-full min-w-[640px] border-collapse text-center text-sm">
+              <caption class="bg-slate-50 px-4 py-2 text-left text-xs font-bold uppercase tracking-wide text-slate-500">生化 / 腎功能 / 免疫</caption>
+              <thead>
+                <tr class="bg-slate-50 text-xs font-bold text-slate-500">
+                  <th class="px-3 py-2 text-left">項目</th>
+                  <th class="px-3 py-2">AST<br><span class="font-normal text-slate-400">U/L</span></th>
+                  <th class="px-3 py-2">ALT<br><span class="font-normal text-slate-400">U/L</span></th>
+                  <th class="px-3 py-2">Cre<br><span class="font-normal text-slate-400">mg/dL</span></th>
+                  <th class="px-3 py-2">eGFR<br><span class="font-normal text-slate-400">mL/min/1.73m²</span></th>
+                  <th class="px-3 py-2">IgE<br><span class="font-normal text-slate-400">U/mL</span></th>
+                  <th class="px-3 py-2">ANA</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-t border-slate-100">
+                  <th class="px-3 py-3 text-left font-bold text-slate-700">檢驗值</th>
+                  <td class="px-3 py-3"><span class="font-bold text-red-600">32 ↑</span></td>
+                  <td class="px-3 py-3"><span class="font-bold text-red-600">42 ↑</span></td>
+                  <td class="px-3 py-3"><span class="font-bold text-red-600">1.5 ↑</span></td>
+                  <td class="px-3 py-3"><span class="font-bold text-amber-600">53.2 ↓</span></td>
+                  <td class="px-3 py-3"><span class="rounded-md bg-red-50 px-2 py-1 font-black text-red-600">684 ↑</span></td>
+                  <td class="px-3 py-3 text-slate-700">1:40 (–)</td>
+                </tr>
+                <tr class="border-t border-slate-100 text-xs text-slate-400">
+                  <th class="px-3 py-2 text-left font-semibold">參考值</th>
+                  <td class="px-3 py-2">8–31</td>
+                  <td class="px-3 py-2">0–41</td>
+                  <td class="px-3 py-2">0.6–1.3</td>
+                  <td class="px-3 py-2">&gt;90</td>
+                  <td class="px-3 py-2">&lt;100</td>
+                  <td class="px-3 py-2">Negative</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p data-aos="fade-up" class="mt-4 text-center text-sm text-slate-500">
+            重點：<strong class="text-red-600">IgE 684</strong> 與 <strong class="text-red-600">Eosinophils 10.2%</strong> 明顯升高，呼應強烈的 type-2 體質；<strong class="text-amber-600">eGFR 53.2、Cre 1.5</strong> 反映輕度腎功能不全；<strong>ALT 42</strong> 為邊緣性肝功能；<strong>RBC／Hb</strong> 偏低提示輕度貧血——這些數據共同形塑下方的個案輪廓。
+          </p>
+        </div>
+
+        <div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+
+          <!-- 1. 年齡 -->
+          <article data-aos="fade-up" class="group rounded-2xl border border-slate-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+            <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.5 20.25a7.5 7.5 0 0115 0v.75H4.5v-.75z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-slate-800">年齡 78 歲</h3>
+            <p class="mt-1 text-sm text-slate-500">年長女性</p>
+            <div class="mt-4 rounded-lg bg-indigo-50/60 p-3">
+              <p class="text-xs font-bold uppercase tracking-wide text-indigo-700">對藥物選擇的影響</p>
+              <p class="mt-1 text-sm text-slate-600">不利 JAK inhibitors（MACE／VTE／惡性腫瘤風險集中於 ≥65 歲）；有利 biologics。</p>
+            </div>
+          </article>
+
+          <!-- 2. Type 2 Diabetes -->
+          <article data-aos="fade-up" data-aos-delay="60" class="group rounded-2xl border border-slate-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+            <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-rose-50 text-rose-600">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 2.25c2.5 3.5 6 7 6 11.25a6 6 0 11-12 0C6 9.25 9.5 5.75 12 2.25z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-slate-800">Type 2 Diabetes</h3>
+            <p class="mt-1 text-sm text-slate-500">metformin + linagliptin</p>
+            <div class="mt-4 rounded-lg bg-rose-50/60 p-3">
+              <p class="text-xs font-bold uppercase tracking-wide text-rose-700">對藥物選擇的影響</p>
+              <p class="mt-1 text-sm text-slate-600">心血管風險因子 → 不利 JAK inhibitors；systemic steroids 會惡化血糖。</p>
+            </div>
+          </article>
+
+          <!-- 3. Hypertension -->
+          <article data-aos="fade-up" data-aos-delay="120" class="group rounded-2xl border border-slate-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+            <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-orange-50 text-orange-600">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-slate-800">輕度 Hypertension</h3>
+            <p class="mt-1 text-sm text-slate-500">未治療</p>
+            <div class="mt-4 rounded-lg bg-orange-50/60 p-3">
+              <p class="text-xs font-bold uppercase tracking-wide text-orange-700">對藥物選擇的影響</p>
+              <p class="mt-1 text-sm text-slate-600">應避免 cyclosporine（升壓）；進一步不利 JAK inhibitors（MACE）。</p>
+            </div>
+          </article>
+
+          <!-- 4. 腎功能不全 -->
+          <article data-aos="fade-up" data-aos-delay="180" class="group rounded-2xl border border-slate-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+            <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-50 text-cyan-600">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.5h16.5L13.5 13.5v4.5l-3 1.5v-6L3.75 4.5z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-slate-800">腎功能不全</h3>
+            <p class="mt-1 text-sm text-slate-500">eGFR 53、Cr 1.5</p>
+            <div class="mt-4 rounded-lg bg-cyan-50/60 p-3">
+              <p class="text-xs font-bold uppercase tracking-wide text-cyan-700">對藥物選擇的影響</p>
+              <p class="mt-1 text-sm text-slate-600">cyclosporine 禁忌、MTX 須謹慎；biologics 不經腎清除、無須調量。</p>
+            </div>
+          </article>
+
+          <!-- 5. ALT -->
+          <article data-aos="fade-up" class="group rounded-2xl border border-slate-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+            <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-amber-50 text-amber-600">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.3 24.3 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-slate-800">邊緣性 ALT 42</h3>
+            <p class="mt-1 text-sm text-slate-500">U/L</p>
+            <div class="mt-4 rounded-lg bg-amber-50/60 p-3">
+              <p class="text-xs font-bold uppercase tracking-wide text-amber-700">對藥物選擇的影響</p>
+              <p class="mt-1 text-sm text-slate-600">methotrexate 須謹慎（hepatotoxicity），需定期監測肝功能。</p>
+            </div>
+          </article>
+
+          <!-- 6. 貧血 -->
+          <article data-aos="fade-up" data-aos-delay="60" class="group rounded-2xl border border-slate-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+            <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-red-50 text-red-600">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6l3 12h13.5l3-12M2.25 6h19.5M2.25 6l1.5-2.25h16.5L21.75 6M8.25 11.25l2.25 2.25 4.5-4.5" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-slate-800">輕度貧血</h3>
+            <p class="mt-1 text-sm text-slate-500">血小板偏高</p>
+            <div class="mt-4 rounded-lg bg-red-50/60 p-3">
+              <p class="text-xs font-bold uppercase tracking-wide text-red-700">對藥物選擇的影響</p>
+              <p class="mt-1 text-sm text-slate-600">azathioprine 須謹慎（myelotoxicity），需追蹤 CBC。</p>
+            </div>
+          </article>
+
+          <!-- 7. 皮膚萎縮 -->
+          <article data-aos="fade-up" data-aos-delay="120" class="group rounded-2xl border border-slate-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+            <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-purple-50 text-purple-600">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-slate-800">皮膚萎縮</h3>
+            <p class="mt-1 text-sm text-slate-500">外用類固醇引起</p>
+            <div class="mt-4 rounded-lg bg-purple-50/60 p-3">
+              <p class="text-xs font-bold uppercase tracking-wide text-purple-700">對藥物選擇的影響</p>
+              <p class="mt-1 text-sm text-slate-600">醫源性併發症 → 支持升級至全身性治療，減少外用類固醇依賴。</p>
+            </div>
+          </article>
+
+          <!-- 8. AD 反覆難控 -->
+          <article data-aos="fade-up" data-aos-delay="180" class="group rounded-2xl border border-slate-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+            <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-slate-800">AD 反覆難控</h3>
+            <p class="mt-1 text-sm text-slate-500">多種外用藥無效</p>
+            <div class="mt-4 rounded-lg bg-blue-50/60 p-3">
+              <p class="text-xs font-bold uppercase tracking-wide text-blue-700">對藥物選擇的影響</p>
+              <p class="mt-1 text-sm text-slate-600">需要有效、持久且負擔低的方案 → 支持 biologic（首選 dupilumab）。</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Section 2：病理機轉 ========== -->
+    <section id="mechanism" class="dark-fallback bg-white py-20">
+      <div class="mx-auto max-w-6xl px-4">
+        <div class="mx-auto max-w-3xl text-center">
+          <h2 data-aos="fade-up" class="text-3xl font-black text-slate-800 sm:text-4xl">
+            AD 的免疫機轉：<span class="text-gradient">為何需要標靶治療？</span>
+          </h2>
+          <p data-aos="fade-up" data-aos-delay="80" class="mt-4 text-slate-600">
+            理解 type-2 發炎的訊號路徑，就能說明新一代藥物為何有效、彼此又有何不同。
+          </p>
+        </div>
+
+        <div class="mt-12 space-y-8">
+          <!-- 左：機轉圖片（含 SVG 佔位 fallback）；手機版置於文字下方 -->
+          <div data-aos="fade-right" class="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm">
+            <img src="/images/Mechanisms%20of%20IL-4%20IL-13%20and%20IL-31%20targeting%20biologics%20and%20JAKSTAT%20inhibitors%20for%20atopic%20dermatitis..jpg"
+                 alt="IL-4、IL-13、IL-31 標靶生物製劑與 JAK-STAT 抑制劑治療異位性皮膚炎的作用機轉圖"
+                 class="block h-auto w-full"
+                 loading="eager"
+                 onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');" />
+            <!-- SVG 佔位圖（圖片不存在時顯示） -->
+            <div class="hidden p-10">
+              <svg viewBox="0 0 400 260" class="mx-auto h-auto w-full max-w-md" role="img" aria-label="免疫機轉佔位示意圖">
+                <rect width="400" height="260" rx="12" fill="#f1f5f9" />
+                <circle cx="120" cy="90" r="34" fill="#1e40af" opacity="0.15" />
+                <circle cx="120" cy="90" r="20" fill="#1e40af" opacity="0.4" />
+                <text x="120" y="150" text-anchor="middle" font-size="13" fill="#1e40af" font-weight="bold">IL-4 / IL-13</text>
+                <rect x="240" y="64" width="90" height="52" rx="8" fill="#0891b2" opacity="0.2" />
+                <text x="285" y="94" text-anchor="middle" font-size="12" fill="#0891b2" font-weight="bold">IL-4Rα</text>
+                <path d="M154 90 H236" stroke="#64748b" stroke-width="2" stroke-dasharray="5 4" />
+                <text x="200" y="210" text-anchor="middle" font-size="12" fill="#64748b">機轉示意圖（圖片暫無法載入）</text>
+              </svg>
+            </div>
+          </div>
+
+          <!-- 右：3 步驟卡片（AOS stagger）；手機版置於圖片上方 -->
+          <ol class="grid grid-cols-1 gap-5 lg:grid-cols-3">
+            <li data-aos="fade-up" data-aos-delay="0" class="flex gap-4 rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
+              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-base font-black text-white">1</span>
+              <div>
+                <h3 class="font-bold text-slate-800">Th2 免疫活化 → IL-4 / IL-13 大量分泌</h3>
+                <p class="mt-1 text-sm text-slate-600">
+                  AD 主要由 <strong>type-2 (Th2) immune activation</strong> 驅動；<strong>IL-4</strong> 與 <strong>IL-13</strong>
+                  是搔癢、skin-barrier dysfunction、皮膚增厚與 microbiome dysbiosis 的核心介質，<strong>IL-31</strong>
+                  則另透過獨立受體軸驅動 pruritus。
+                </p>
+              </div>
+            </li>
+            <li data-aos="fade-up" data-aos-delay="120" class="flex gap-4 rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
+              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent text-base font-black text-white">2</span>
+              <div>
+                <h3 class="font-bold text-slate-800">IL-4Rα 共用受體 → JAK–STAT 訊號傳遞</h3>
+                <p class="mt-1 text-sm text-slate-600">
+                  IL-4 與 IL-13 透過共用 <strong>IL-4Rα</strong> 次單元的受體傳遞訊息，並在細胞內經由
+                  <strong>JAK–STAT</strong>（Janus kinase–signal transducer and activator of transcription）路徑傳遞。
+                </p>
+              </div>
+            </li>
+            <li data-aos="fade-up" data-aos-delay="240" class="flex gap-4 rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
+              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-slate-800 text-base font-black text-white">3</span>
+              <div>
+                <h3 class="font-bold text-slate-800">兩大現代策略：Biologics vs JAK inhibitors</h3>
+                <p class="mt-1 text-sm text-slate-600">
+                  <strong>Biologics</strong>：於細胞外阻斷 cytokines 或其受體（上游、標的較窄）。
+                  <strong>JAK inhibitors</strong>：阻斷細胞內共用的訊息節點（下游、橫跨 Th1/Th2/Th17/Th22，標的較廣）。
+                </p>
+                <div class="mt-3 flex flex-wrap gap-2">
+                  <span class="rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-primary">胞外阻斷</span>
+                  <span class="rounded-full bg-cyan-50 px-3 py-1 text-xs font-semibold text-accent">胞內阻斷</span>
+                </div>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <!-- 延伸機轉圖集（點圖可看大圖） -->
+        <div class="mt-12">
+          <h3 data-aos="fade-up" class="text-center text-lg font-bold text-slate-700">延伸機轉圖集</h3>
+          <div class="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+
+            <figure data-aos="fade-up" data-aos-delay="0" class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+              <a href="/images/il4-il13-il31-skin-effects.jpg" target="_blank" rel="noopener" class="block aspect-video overflow-hidden bg-slate-100">
+                <img src="/images/il4-il13-il31-skin-effects.jpg"
+                     alt="IL-4、IL-13 與 IL-31 訊號傳遞對異位性皮膚炎皮膚的影響示意圖"
+                     class="h-full w-full object-cover transition duration-300 hover:scale-105"
+                     loading="lazy"
+                     onerror="this.closest('figure').style.display='none';" />
+              </a>
+              <figcaption class="px-4 py-3 text-xs text-slate-500">IL-4／IL-13／IL-31 對皮膚的作用</figcaption>
+            </figure>
+
+            <figure data-aos="fade-up" data-aos-delay="80" class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+              <a href="/images/dupilumab-mechanism.jpg" target="_blank" rel="noopener" class="block aspect-video overflow-hidden bg-slate-100">
+                <img src="/images/dupilumab-mechanism.jpg"
+                     alt="Dupilumab 結合 IL-4Rα、同時阻斷 IL-4 與 IL-13 訊號的作用機轉"
+                     class="h-full w-full object-cover transition duration-300 hover:scale-105"
+                     loading="lazy"
+                     onerror="this.closest('figure').style.display='none';" />
+              </a>
+              <figcaption class="px-4 py-3 text-xs text-slate-500">Dupilumab（anti–IL-4Rα）機轉</figcaption>
+            </figure>
+
+            <figure data-aos="fade-up" data-aos-delay="160" class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+              <a href="/images/tralokinumab-lebrikizumab-mechanism.jpg" target="_blank" rel="noopener" class="block aspect-video overflow-hidden bg-slate-100">
+                <img src="/images/tralokinumab-lebrikizumab-mechanism.jpg"
+                     alt="Tralokinumab 與 Lebrikizumab 結合 IL-13、阻斷下游訊號的作用機轉"
+                     class="h-full w-full object-cover transition duration-300 hover:scale-105"
+                     loading="lazy"
+                     onerror="this.closest('figure').style.display='none';" />
+              </a>
+              <figcaption class="px-4 py-3 text-xs text-slate-500">Tralokinumab／Lebrikizumab（anti–IL-13）機轉</figcaption>
+            </figure>
+
+            <figure data-aos="fade-up" data-aos-delay="240" class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+              <a href="/images/il13-receptor-tralokinumab.png" target="_blank" rel="noopener" class="block aspect-video overflow-hidden bg-slate-100">
+                <img src="/images/il13-receptor-tralokinumab.png"
+                     alt="IL-13 受體結構與 tralokinumab 的作用方式：IL-4 與 IL-13 共用 IL-4Rα 次單元"
+                     class="h-full w-full object-cover transition duration-300 hover:scale-105"
+                     loading="lazy"
+                     onerror="this.closest('figure').style.display='none';" />
+              </a>
+              <figcaption class="px-4 py-3 text-xs text-slate-500">IL-13 受體結構與 tralokinumab 作用</figcaption>
+            </figure>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Section 3：治療選項 ========== -->
+    <section id="treatments" class="dark-fallback bg-slate-50 py-20">
+      <div class="mx-auto max-w-6xl px-4">
+        <div class="mx-auto max-w-3xl text-center">
+          <h2 data-aos="fade-up" class="text-3xl font-black text-slate-800 sm:text-4xl">
+            全身性<span class="text-gradient">治療選項</span>
+          </h2>
+          <p data-aos="fade-up" data-aos-delay="80" class="mt-4 text-slate-600">
+            依指引建議強度分為三大類。點選下方分頁切換，並可展開每張藥物卡片查看完整資訊。
+          </p>
+        </div>
+
+        <!-- Tabs -->
+        <div data-tabs class="mt-10">
+          <div role="tablist" aria-label="治療選項分類" class="flex flex-wrap justify-center gap-3">
+            <button data-tab="biologics" role="tab" aria-selected="true" class="tab-btn tab-active">
+              Biologics・強烈建議
+            </button>
+            <button data-tab="jak" role="tab" aria-selected="false" class="tab-btn">
+              JAK Inhibitors・強烈建議
+            </button>
+            <button data-tab="traditional" role="tab" aria-selected="false" class="tab-btn">
+              傳統 immunomodulators・有條件建議
+            </button>
+          </div>
+
+          <!-- Panel 1：Biologics -->
+          <div data-panel="biologics" role="tabpanel" class="mt-8">
+            <p class="mb-6 text-center text-sm text-slate-500">
+              monoclonal antibodies，無 boxed warning、無例行抽血監測、不經腎／肝清除（無須劑量調整）。
+            </p>
+            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+
+              <!-- Dupilumab -->
+              <article data-aos="fade-up" class="relative rounded-2xl border-2 border-emerald-200 bg-white p-6 shadow-sm">
+                <span class="absolute right-4 top-4 rounded-full bg-emerald-500 px-3 py-1 text-xs font-bold text-white shadow">★ 推薦給殷太太</span>
+                <h4 class="text-lg font-black text-slate-800">Dupilumab</h4>
+                <span class="mt-1 inline-block rounded-md bg-blue-50 px-2 py-0.5 text-xs font-semibold text-primary">anti–IL-4Rα</span>
+                <p class="mt-3 text-sm text-slate-600">結合共用的 IL-4Rα 次單元，<strong>同時阻斷 IL-4 與 IL-13</strong> 兩條 type-2 訊號臂。</p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-medium text-emerald-700">療效：快速持久（達 5 年）</span>
+                  <span class="rounded-full bg-sky-50 px-2.5 py-1 text-xs font-medium text-sky-700">安全性：無需抽血</span>
+                </div>
+                <button class="accordion-trigger mt-4 flex w-full items-center justify-between rounded-lg bg-slate-50 px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-100" aria-expanded="false">
+                  <span>了解更多</span>
+                  <svg class="accordion-icon h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                </button>
+                <div class="accordion-panel">
+                  <dl class="space-y-2 px-1 py-3 text-sm">
+                    <div><dt class="font-semibold text-primary">Mechanism</dt><dd class="text-slate-600">結合 IL-4Rα，阻斷經 type I／II 受體的 IL-4 與 IL-13 訊息，同時中斷 Th2 反應兩條臂。</dd></div>
+                    <div><dt class="font-semibold text-primary">Efficacy</dt><dd class="text-slate-600">首個核准用於中重度 AD 的 biologic；快速且持續改善徵象、症狀與生活品質，療效維持達 5 年。</dd></div>
+                    <div><dt class="font-semibold text-primary">Dosing</dt><dd class="text-slate-600">皮下注射，每 2 週一次（先給予 loading dose）。</dd></div>
+                    <div><dt class="font-semibold text-primary">Key safety</dt><dd class="text-slate-600">最常見 conjunctivitis、臉／頸部紅斑、注射部位反應；整體耐受良好。</dd></div>
+                  </dl>
+                </div>
+              </article>
+
+              <!-- Tralokinumab -->
+              <article data-aos="fade-up" data-aos-delay="60" class="relative rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                <h4 class="text-lg font-black text-slate-800">Tralokinumab</h4>
+                <span class="mt-1 inline-block rounded-md bg-blue-50 px-2 py-0.5 text-xs font-semibold text-primary">anti–IL-13</span>
+                <p class="mt-3 text-sm text-slate-600">全人源 IgG4，<strong>高親和力直接結合 IL-13</strong>，阻止其與 IL-13Rα1／α2 結合。</p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-medium text-emerald-700">療效：head-and-neck 顯著</span>
+                  <span class="rounded-full bg-sky-50 px-2.5 py-1 text-xs font-medium text-sky-700">安全性：無 boxed warning</span>
+                </div>
+                <button class="accordion-trigger mt-4 flex w-full items-center justify-between rounded-lg bg-slate-50 px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-100" aria-expanded="false">
+                  <span>了解更多</span>
+                  <svg class="accordion-icon h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                </button>
+                <div class="accordion-panel">
+                  <dl class="space-y-2 px-1 py-3 text-sm">
+                    <div><dt class="font-semibold text-primary">Mechanism</dt><dd class="text-slate-600">IL-13 選擇性阻斷（非 IL-4/IL-13 雙重阻斷），阻止下游訊息。</dd></div>
+                    <div><dt class="font-semibold text-primary">Efficacy</dt><dd class="text-slate-600">三項關鍵 phase-3 試驗中，單用或併需要時 TCS 皆顯著改善。</dd></div>
+                    <div><dt class="font-semibold text-primary">Dosing</dt><dd class="text-slate-600">皮下注射；維持期給藥較具彈性。</dd></div>
+                    <div><dt class="font-semibold text-primary">Key safety</dt><dd class="text-slate-600">無 boxed warning、無例行抽血；對 head-and-neck AD 療效顯著。</dd></div>
+                  </dl>
+                </div>
+              </article>
+
+              <!-- Lebrikizumab -->
+              <article data-aos="fade-up" data-aos-delay="120" class="relative rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                <h4 class="text-lg font-black text-slate-800">Lebrikizumab</h4>
+                <span class="mt-1 inline-block rounded-md bg-blue-50 px-2 py-0.5 text-xs font-semibold text-primary">anti–IL-13</span>
+                <p class="mt-3 text-sm text-slate-600">結合 IL-13 的<strong>不同 epitope</strong>；高親和、低解離，阻礙 IL-4Rα/IL-13Rα1 heterodimer 化。</p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-medium text-emerald-700">療效：較新選項</span>
+                  <span class="rounded-full bg-sky-50 px-2.5 py-1 text-xs font-medium text-sky-700">安全性：多為輕度事件</span>
+                </div>
+                <button class="accordion-trigger mt-4 flex w-full items-center justify-between rounded-lg bg-slate-50 px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-100" aria-expanded="false">
+                  <span>了解更多</span>
+                  <svg class="accordion-icon h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                </button>
+                <div class="accordion-panel">
+                  <dl class="space-y-2 px-1 py-3 text-sm">
+                    <div><dt class="font-semibold text-primary">Mechanism</dt><dd class="text-slate-600">結合 IL-13（epitope 與 tralokinumab 不同），抑制訊息傳遞，仍可經 IL-13Rα2 清除。</dd></div>
+                    <div><dt class="font-semibold text-primary">Efficacy</dt><dd class="text-slate-600">較新的 IL-13 選擇性選項；整合性安全分析顯示多為輕度、非嚴重事件。</dd></div>
+                    <div><dt class="font-semibold text-primary">Dosing</dt><dd class="text-slate-600">皮下注射。</dd></div>
+                    <div><dt class="font-semibold text-primary">Key safety</dt><dd class="text-slate-600">無 boxed warning；事件多屬輕度。</dd></div>
+                  </dl>
+                </div>
+              </article>
+
+              <!-- Nemolizumab -->
+              <article data-aos="fade-up" data-aos-delay="180" class="relative rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                <h4 class="text-lg font-black text-slate-800">Nemolizumab</h4>
+                <span class="mt-1 inline-block rounded-md bg-blue-50 px-2 py-0.5 text-xs font-semibold text-primary">anti–IL-31 receptor A</span>
+                <p class="mt-3 text-sm text-slate-600">阻斷<strong>「搔癢 cytokine」IL-31</strong> 的受體，打斷 itch–scratch cycle。</p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-medium text-emerald-700">療效：止癢為主</span>
+                  <span class="rounded-full bg-sky-50 px-2.5 py-1 text-xs font-medium text-sky-700">安全性：良好</span>
+                </div>
+                <button class="accordion-trigger mt-4 flex w-full items-center justify-between rounded-lg bg-slate-50 px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-100" aria-expanded="false">
+                  <span>了解更多</span>
+                  <svg class="accordion-icon h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                </button>
+                <div class="accordion-panel">
+                  <dl class="space-y-2 px-1 py-3 text-sm">
+                    <div><dt class="font-semibold text-primary">Mechanism</dt><dd class="text-slate-600">阻斷 IL-31 受體，針對 pruritus 與 itch–scratch cycle，而非直接作用於 IL-4/IL-13 軸。</dd></div>
+                    <div><dt class="font-semibold text-primary">Efficacy</dt><dd class="text-slate-600">已納入 EuroGuiDerm living update；對「搔癢為主且頑固」的病人尤其有用。</dd></div>
+                    <div><dt class="font-semibold text-primary">Dosing</dt><dd class="text-slate-600">皮下注射。</dd></div>
+                    <div><dt class="font-semibold text-primary">Key safety</dt><dd class="text-slate-600">整體耐受良好。</dd></div>
+                  </dl>
+                </div>
+              </article>
+
+            </div>
+          </div>
+
+          <!-- Panel 2：JAK inhibitors -->
+          <div data-panel="jak" role="tabpanel" class="mt-8 hidden">
+            <!-- Boxed warning 警告標語 -->
+            <div data-aos="fade-up" class="mb-6 flex items-start gap-3 rounded-xl border-l-4 border-amber-400 bg-amber-50 p-4">
+              <span class="text-2xl leading-none">⚠</span>
+              <div>
+                <p class="font-bold text-amber-800">Boxed Warning — 年長患者需謹慎</p>
+                <p class="mt-1 text-sm text-amber-700">
+                  整個 class 帶有嚴重感染、死亡、malignancy、MACE 與 VTE 之警示；風險集中於 <strong>≥65 歲</strong>、吸菸者及心血管／惡性腫瘤高風險者。EMA 建議：除非無合適替代方案，否則限制 ≥65 歲使用。
+                </p>
+              </div>
+            </div>
+            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+              <!-- Upadacitinib -->
+              <article data-aos="fade-up" class="relative rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                <h4 class="text-lg font-black text-slate-800">Upadacitinib</h4>
+                <span class="mt-1 inline-block rounded-md bg-amber-50 px-2 py-0.5 text-xs font-semibold text-amber-700">選擇性 JAK1</span>
+                <p class="mt-3 text-sm text-slate-600">可逆性 JAK1 inhibitor（15 mg 或 30 mg 每日一次）。</p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-medium text-emerald-700">療效：止癢起效最快</span>
+                  <span class="rounded-full bg-red-50 px-2.5 py-1 text-xs font-medium text-red-700">⚠ Boxed warning</span>
+                </div>
+                <button class="accordion-trigger mt-4 flex w-full items-center justify-between rounded-lg bg-slate-50 px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-100" aria-expanded="false">
+                  <span>了解更多</span>
+                  <svg class="accordion-icon h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                </button>
+                <div class="accordion-panel">
+                  <dl class="space-y-2 px-1 py-3 text-sm">
+                    <div><dt class="font-semibold text-primary">Mechanism</dt><dd class="text-slate-600">口服小分子，阻斷 JAK–STAT 路徑（橫跨 Th1/2/17/22）。</dd></div>
+                    <div><dt class="font-semibold text-primary">Efficacy</dt><dd class="text-slate-600">可達 EASI-90；head-to-head 起效與反應深度可優於 dupilumab。</dd></div>
+                    <div><dt class="font-semibold text-primary">Dosing</dt><dd class="text-slate-600">口服，每日一次。</dd></div>
+                    <div><dt class="font-semibold text-red-600">Key safety</dt><dd class="text-slate-600">class boxed warning（感染、MACE、VTE、malignancy）；需治療前篩檢與定期抽血。</dd></div>
+                  </dl>
+                </div>
+              </article>
+
+              <!-- Abrocitinib -->
+              <article data-aos="fade-up" data-aos-delay="60" class="relative rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                <h4 class="text-lg font-black text-slate-800">Abrocitinib</h4>
+                <span class="mt-1 inline-block rounded-md bg-amber-50 px-2 py-0.5 text-xs font-semibold text-amber-700">選擇性 JAK1</span>
+                <p class="mt-3 text-sm text-slate-600">選擇性 JAK1 inhibitor，口服每日一次。</p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-medium text-emerald-700">療效：深度反應</span>
+                  <span class="rounded-full bg-red-50 px-2.5 py-1 text-xs font-medium text-red-700">⚠ Boxed warning</span>
+                </div>
+                <button class="accordion-trigger mt-4 flex w-full items-center justify-between rounded-lg bg-slate-50 px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-100" aria-expanded="false">
+                  <span>了解更多</span>
+                  <svg class="accordion-icon h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                </button>
+                <div class="accordion-panel">
+                  <dl class="space-y-2 px-1 py-3 text-sm">
+                    <div><dt class="font-semibold text-primary">Mechanism</dt><dd class="text-slate-600">選擇性 JAK1 inhibitor，阻斷下游共用訊息節點。</dd></div>
+                    <div><dt class="font-semibold text-primary">Efficacy</dt><dd class="text-slate-600">高門檻反應、止癢起效快；head-to-head 可優於 dupilumab。</dd></div>
+                    <div><dt class="font-semibold text-primary">Dosing</dt><dd class="text-slate-600">口服，每日一次。</dd></div>
+                    <div><dt class="font-semibold text-red-600">Key safety</dt><dd class="text-slate-600">class boxed warning；CPK／血脂上升、herpes zoster 再活化；需監測。</dd></div>
+                  </dl>
+                </div>
+              </article>
+
+              <!-- Baricitinib -->
+              <article data-aos="fade-up" data-aos-delay="120" class="relative rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                <h4 class="text-lg font-black text-slate-800">Baricitinib</h4>
+                <span class="mt-1 inline-block rounded-md bg-amber-50 px-2 py-0.5 text-xs font-semibold text-amber-700">JAK1 / JAK2</span>
+                <p class="mt-3 text-sm text-slate-600">JAK1/JAK2 inhibitor；於 EU 核准用於 AD，<strong>美國未核准</strong>。</p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-medium text-emerald-700">療效：快速止癢</span>
+                  <span class="rounded-full bg-red-50 px-2.5 py-1 text-xs font-medium text-red-700">⚠ Boxed warning</span>
+                </div>
+                <button class="accordion-trigger mt-4 flex w-full items-center justify-between rounded-lg bg-slate-50 px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-100" aria-expanded="false">
+                  <span>了解更多</span>
+                  <svg class="accordion-icon h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                </button>
+                <div class="accordion-panel">
+                  <dl class="space-y-2 px-1 py-3 text-sm">
+                    <div><dt class="font-semibold text-primary">Mechanism</dt><dd class="text-slate-600">JAK1/JAK2 inhibitor，阻斷 JAK–STAT 路徑。</dd></div>
+                    <div><dt class="font-semibold text-primary">Efficacy</dt><dd class="text-slate-600">於 EU 核准用於中重度 AD；快速止癢。</dd></div>
+                    <div><dt class="font-semibold text-primary">Dosing</dt><dd class="text-slate-600">口服，每日一次（美國未核准用於 AD）。</dd></div>
+                    <div><dt class="font-semibold text-red-600">Key safety</dt><dd class="text-slate-600">class boxed warning；風險集中於 ≥65 歲與心血管高風險者。</dd></div>
+                  </dl>
+                </div>
+              </article>
+
+            </div>
+          </div>
+
+          <!-- Panel 3：傳統 immunomodulators -->
+          <div data-panel="traditional" role="tabpanel" class="mt-8 hidden">
+            <p class="mb-6 text-center text-sm text-slate-500">
+              廣效、非標靶 immunosuppressants；證據力中等且具器官特異性毒性，需定期抽血監測。
+            </p>
+            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+              <!-- Cyclosporine -->
+              <article data-aos="fade-up" class="relative rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                <h4 class="text-lg font-black text-slate-800">Cyclosporine</h4>
+                <span class="mt-1 inline-block rounded-md bg-slate-100 px-2 py-0.5 text-xs font-semibold text-slate-600">calcineurin inhibitor</span>
+                <p class="mt-3 text-sm text-slate-600">阻斷 IL-2 等 cytokine 轉錄，降低 T-lymphocyte 活化；起效快（2–3 週）。</p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-medium text-emerald-700">療效：短期 ≈ dupilumab</span>
+                  <span class="rounded-full bg-red-50 px-2.5 py-1 text-xs font-medium text-red-700">腎毒性／升壓</span>
+                </div>
+                <button class="accordion-trigger mt-4 flex w-full items-center justify-between rounded-lg bg-slate-50 px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-100" aria-expanded="false">
+                  <span>了解更多</span>
+                  <svg class="accordion-icon h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                </button>
+                <div class="accordion-panel">
+                  <dl class="space-y-2 px-1 py-3 text-sm">
+                    <div><dt class="font-semibold text-primary">Mechanism</dt><dd class="text-slate-600">calcineurin inhibitor，阻斷 IL-2 等 cytokine 轉錄。</dd></div>
+                    <div><dt class="font-semibold text-primary">Efficacy</dt><dd class="text-slate-600">起效快；約 16 週短期療效與 dupilumab 相當，優於 MTX／AZA。</dd></div>
+                    <div><dt class="font-semibold text-primary">Dosing</dt><dd class="text-slate-600">口服；不建議使用超過約 1 年。</dd></div>
+                    <div><dt class="font-semibold text-red-600">Key safety</dt><dd class="text-slate-600">劑量相關 nephrotoxicity 與 hypertension；於腎功能不全與未控 HTN 為禁忌。</dd></div>
+                  </dl>
+                </div>
+              </article>
+
+              <!-- Methotrexate -->
+              <article data-aos="fade-up" data-aos-delay="60" class="relative rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                <h4 class="text-lg font-black text-slate-800">Methotrexate</h4>
+                <span class="mt-1 inline-block rounded-md bg-slate-100 px-2 py-0.5 text-xs font-semibold text-slate-600">DHFR inhibitor</span>
+                <p class="mt-3 text-sm text-slate-600">抑制 dihydrofolate reductase，具抗發炎／抗增生作用；併 folic acid 減少副作用。</p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-medium text-emerald-700">療效：長期穩定</span>
+                  <span class="rounded-full bg-red-50 px-2.5 py-1 text-xs font-medium text-red-700">肝毒性／經腎清除</span>
+                </div>
+                <button class="accordion-trigger mt-4 flex w-full items-center justify-between rounded-lg bg-slate-50 px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-100" aria-expanded="false">
+                  <span>了解更多</span>
+                  <svg class="accordion-icon h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                </button>
+                <div class="accordion-panel">
+                  <dl class="space-y-2 px-1 py-3 text-sm">
+                    <div><dt class="font-semibold text-primary">Mechanism</dt><dd class="text-slate-600">抑制 DHFR，抗發炎／抗增生。</dd></div>
+                    <div><dt class="font-semibold text-primary">Efficacy</dt><dd class="text-slate-600">長期使用有效且一般耐受良好，但起效較 CsA 慢。</dd></div>
+                    <div><dt class="font-semibold text-primary">Dosing</dt><dd class="text-slate-600">每週給藥，併 folic acid。</dd></div>
+                    <div><dt class="font-semibold text-red-600">Key safety</dt><dd class="text-slate-600">hepatotoxicity、myelosuppression、GI；經腎清除須調量並定期監測 CBC／肝／腎。</dd></div>
+                  </dl>
+                </div>
+              </article>
+
+              <!-- Azathioprine -->
+              <article data-aos="fade-up" data-aos-delay="120" class="relative rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                <h4 class="text-lg font-black text-slate-800">Azathioprine</h4>
+                <span class="mt-1 inline-block rounded-md bg-slate-100 px-2 py-0.5 text-xs font-semibold text-slate-600">purine analogue</span>
+                <p class="mt-3 text-sm text-slate-600">purine analogue，抑制 lymphocyte 增生。</p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="rounded-full bg-amber-50 px-2.5 py-1 text-xs font-medium text-amber-700">需查 TPMT/NUDT15</span>
+                  <span class="rounded-full bg-red-50 px-2.5 py-1 text-xs font-medium text-red-700">肝／骨髓毒性</span>
+                </div>
+                <button class="accordion-trigger mt-4 flex w-full items-center justify-between rounded-lg bg-slate-50 px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-100" aria-expanded="false">
+                  <span>了解更多</span>
+                  <svg class="accordion-icon h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                </button>
+                <div class="accordion-panel">
+                  <dl class="space-y-2 px-1 py-3 text-sm">
+                    <div><dt class="font-semibold text-primary">Mechanism</dt><dd class="text-slate-600">purine analogue，抑制 lymphocyte 增生。</dd></div>
+                    <div><dt class="font-semibold text-primary">Efficacy</dt><dd class="text-slate-600">有條件建議；療效次於 CsA／dupilumab。</dd></div>
+                    <div><dt class="font-semibold text-primary">Dosing</dt><dd class="text-slate-600">口服；不應與 UV light 併用；使用前先篩檢慢性感染。</dd></div>
+                    <div><dt class="font-semibold text-red-600">Key safety</dt><dd class="text-slate-600">劑量相關 hepatotoxicity 與 myelotoxicity；TPMT/NUDT15 status 影響毒性風險。</dd></div>
+                  </dl>
+                </div>
+              </article>
+
+              <!-- MMF -->
+              <article data-aos="fade-up" data-aos-delay="180" class="relative rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                <h4 class="text-lg font-black text-slate-800">Mycophenolate mofetil</h4>
+                <span class="mt-1 inline-block rounded-md bg-slate-100 px-2 py-0.5 text-xs font-semibold text-slate-600">IMPDH inhibitor</span>
+                <p class="mt-3 text-sm text-slate-600">inosine-monophosphate-dehydrogenase inhibitor，選擇性抑制 lymphocyte 增生。</p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600">證據最少</span>
+                  <span class="rounded-full bg-amber-50 px-2.5 py-1 text-xs font-medium text-amber-700">有條件建議</span>
+                </div>
+                <button class="accordion-trigger mt-4 flex w-full items-center justify-between rounded-lg bg-slate-50 px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-100" aria-expanded="false">
+                  <span>了解更多</span>
+                  <svg class="accordion-icon h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                </button>
+                <div class="accordion-panel">
+                  <dl class="space-y-2 px-1 py-3 text-sm">
+                    <div><dt class="font-semibold text-primary">Mechanism</dt><dd class="text-slate-600">IMPDH inhibitor，選擇性抑制 lymphocyte 增生。</dd></div>
+                    <div><dt class="font-semibold text-primary">Efficacy</dt><dd class="text-slate-600">有條件建議；在傳統藥物中證據最少。</dd></div>
+                    <div><dt class="font-semibold text-primary">Dosing</dt><dd class="text-slate-600">口服。</dd></div>
+                    <div><dt class="font-semibold text-primary">Key safety</dt><dd class="text-slate-600">GI 不適、骨髓抑制；需定期監測。</dd></div>
+                  </dl>
+                </div>
+              </article>
+
+              <!-- Systemic corticosteroids（不建議） -->
+              <article data-aos="fade-up" data-aos-delay="240" class="relative rounded-2xl border-2 border-red-200 bg-red-50/40 p-6 shadow-sm">
+                <span class="absolute right-4 top-4 rounded-full bg-red-500 px-3 py-1 text-xs font-bold text-white shadow">✕ 不建議用於 AD 維持治療</span>
+                <h4 class="text-lg font-black text-slate-800">Systemic corticosteroids</h4>
+                <span class="mt-1 inline-block rounded-md bg-red-100 px-2 py-0.5 text-xs font-semibold text-red-700">guideline 反對</span>
+                <p class="mt-3 text-sm text-slate-600">AAD guideline 唯一<strong>不建議</strong>用於 AD 的全身性選項。</p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="rounded-full bg-red-100 px-2.5 py-1 text-xs font-medium text-red-700">停藥 rebound</span>
+                  <span class="rounded-full bg-red-100 px-2.5 py-1 text-xs font-medium text-red-700">惡化血糖</span>
+                </div>
+                <button class="accordion-trigger mt-4 flex w-full items-center justify-between rounded-lg bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50" aria-expanded="false">
+                  <span>了解更多</span>
+                  <svg class="accordion-icon h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                </button>
+                <div class="accordion-panel">
+                  <dl class="space-y-2 px-1 py-3 text-sm">
+                    <div><dt class="font-semibold text-red-600">定位</dt><dd class="text-slate-600">無法誘導持久緩解、停藥後常見 rebound，長期風險／效益比不佳。</dd></div>
+                    <div><dt class="font-semibold text-red-600">於殷太太</dt><dd class="text-slate-600">會惡化糖尿病人的血糖控制；僅可作為急性發作的短期過渡，不作維持治療。</dd></div>
+                  </dl>
+                </div>
+              </article>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== 治療演算法圖 ===== -->
+        <div class="mt-16">
+          <div class="mx-auto max-w-3xl text-center">
+            <h3 data-aos="fade-up" class="text-2xl font-black text-slate-800 sm:text-3xl">何時升級至全身性治療？</h3>
+            <p data-aos="fade-up" data-aos-delay="80" class="mt-3 text-slate-600">
+              當疾病屬中重度、範圍廣泛、明顯影響生活品質，或對最佳化外用治療與／或 phototherapy 無效時，才考慮全身性治療。
+            </p>
+          </div>
+
+          <figure data-aos="fade-up" data-aos-delay="120" class="mt-8 overflow-hidden rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+            <img src="/images/aad-treatment-algorithm.jpg"
+                 alt="AAD 異位性皮膚炎治療演算法（stepped-care 升級流程）"
+                 class="mx-auto max-h-[640px] w-auto object-contain"
+                 loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');" />
+            <!-- SVG 流程圖 fallback -->
+            <div class="hidden p-6">
+              <svg viewBox="0 0 360 420" class="mx-auto h-auto w-full max-w-sm" role="img" aria-label="治療升級流程佔位圖">
+                <g font-size="12" font-weight="bold" text-anchor="middle">
+                  <rect x="60" y="20" width="240" height="48" rx="10" fill="#dbeafe" />
+                  <text x="180" y="40" fill="#1e40af">基礎：emollient + 外用類固醇</text>
+                  <text x="180" y="56" fill="#1e40af">／calcineurin inhibitor</text>
+                  <rect x="60" y="120" width="240" height="48" rx="10" fill="#cffafe" />
+                  <text x="180" y="140" fill="#0891b2">最佳化外用治療 ±</text>
+                  <text x="180" y="156" fill="#0891b2">NB-UVB phototherapy</text>
+                  <rect x="60" y="220" width="240" height="48" rx="10" fill="#bfdbfe" />
+                  <text x="180" y="240" fill="#1e40af">中重度／頑固／影響生活品質</text>
+                  <text x="180" y="256" fill="#1e40af">→ 升級全身性治療</text>
+                  <rect x="60" y="320" width="240" height="56" rx="10" fill="#1e40af" />
+                  <text x="180" y="343" fill="#ffffff">Biologics（首選）／JAK</text>
+                  <text x="180" y="361" fill="#ffffff">inhibitors／傳統 immunomodulators</text>
+                  <g stroke="#94a3b8" stroke-width="2">
+                    <line x1="180" y1="68" x2="180" y2="118" />
+                    <line x1="180" y1="168" x2="180" y2="218" />
+                    <line x1="180" y1="268" x2="180" y2="318" />
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <figcaption class="mt-4 px-2 text-center text-sm text-slate-500">
+              Topical corticosteroids 搭配長期 emollient 仍是治療基石；唯有最佳化外用治療與光照仍無法控制、且疾病中重度並影響生活品質時，才升級至全身性治療。對殷太太而言，其 AD 分布廣泛、對多種外用藥無效並已造成 steroid 引起的皮膚萎縮，升級治療為合理之舉。
+            </figcaption>
+          </figure>
+
+          <!-- EuroGuiDerm 指引圖（點圖可看大圖） -->
+          <div class="mt-8 grid grid-cols-1 gap-5 md:grid-cols-3">
+            <figure data-aos="fade-up" data-aos-delay="0" class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+              <a href="/images/euroguiderm-stepped-care-plan.png" target="_blank" rel="noopener" class="block aspect-video overflow-hidden bg-slate-100">
+                <img src="/images/euroguiderm-stepped-care-plan.png"
+                     alt="EuroGuiDerm 指引的階梯式照護計畫（stepped-care plan）"
+                     class="h-full w-full object-cover transition duration-300 hover:scale-105"
+                     loading="lazy"
+                     onerror="this.closest('figure').style.display='none';" />
+              </a>
+              <figcaption class="px-4 py-3 text-xs text-slate-500">EuroGuiDerm・階梯式照護計畫</figcaption>
+            </figure>
+
+            <figure data-aos="fade-up" data-aos-delay="80" class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+              <a href="/images/euroguiderm-systemic-recommendations.png" target="_blank" rel="noopener" class="block aspect-video overflow-hidden bg-slate-100">
+                <img src="/images/euroguiderm-systemic-recommendations.png"
+                     alt="EuroGuiDerm 指引對全身性藥物的一般建議一覽"
+                     class="h-full w-full object-cover transition duration-300 hover:scale-105"
+                     loading="lazy"
+                     onerror="this.closest('figure').style.display='none';" />
+              </a>
+              <figcaption class="px-4 py-3 text-xs text-slate-500">EuroGuiDerm・全身性藥物建議</figcaption>
+            </figure>
+
+            <figure data-aos="fade-up" data-aos-delay="160" class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+              <a href="/images/euroguiderm-abstract.jpg" target="_blank" rel="noopener" class="block aspect-video overflow-hidden bg-slate-100">
+                <img src="/images/euroguiderm-abstract.jpg"
+                     alt="EuroGuiDerm 異位性濕疹指引（living update）摘要圖"
+                     class="h-full w-full object-cover transition duration-300 hover:scale-105"
+                     loading="lazy"
+                     onerror="this.closest('figure').style.display='none';" />
+              </a>
+              <figcaption class="px-4 py-3 text-xs text-slate-500">EuroGuiDerm・指引摘要</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Section 4：互動藥物比較 ========== -->
+    <section id="comparison" class="dark-fallback bg-white py-20">
+      <div class="mx-auto max-w-6xl px-4">
+        <div class="mx-auto max-w-3xl text-center">
+          <h2 data-aos="fade-up" class="text-3xl font-black text-slate-800 sm:text-4xl">
+            互動<span class="text-gradient">藥物比較</span>
+          </h2>
+          <p data-aos="fade-up" data-aos-delay="80" class="mt-4 text-slate-600">
+            一覽 11 種選項的療效、安全性與監測負擔。使用上方按鈕篩選類別，點擊任一列展開詳細說明。
+          </p>
+        </div>
+
+        <!-- 篩選按鈕 -->
+        <div data-aos="fade-up" data-aos-delay="120" id="comparison-filters" class="mt-8 flex flex-wrap justify-center gap-3">
+          <button class="filter-btn filter-active" data-filter="all">全部</button>
+          <button class="filter-btn" data-filter="Biologic">Biologics</button>
+          <button class="filter-btn" data-filter="JAK inhibitor">JAK inhibitors</button>
+          <button class="filter-btn" data-filter="傳統">傳統</button>
+          <button class="filter-btn" data-filter="Phototherapy">Phototherapy</button>
+        </div>
+
+        <!-- 比較表（由 comparison.js 渲染） -->
+        <div data-aos="fade-up" data-aos-delay="160" class="mt-8 overflow-x-auto rounded-2xl border border-slate-200 shadow-sm">
+          <table id="comparison-table" class="w-full min-w-[960px] border-collapse text-sm"></table>
+        </div>
+        <p class="mt-3 text-center text-xs text-slate-400">
+          ● 為 1–5 分視覺化（療效／安全性／監測便利性）；綠色列為推薦給殷太太、淡紅色列為其腎功能或年齡不適用。
+        </p>
+      </div>
+    </section>
+
+    <!-- ========== Section 5：殷太太個案分析 ========== -->
+    <section id="case-analysis" class="dark-fallback bg-slate-50 py-20">
+      <div class="mx-auto max-w-6xl px-4">
+        <div class="mx-auto max-w-3xl text-center">
+          <h2 data-aos="fade-up" class="text-3xl font-black text-slate-800 sm:text-4xl">
+            殷太太<span class="text-gradient">個案分析</span>
+          </h2>
+          <p data-aos="fade-up" data-aos-delay="80" class="mt-4 text-slate-600">
+            「臨床因子 × 藥物適用性」矩陣。<strong>點擊左側任一臨床因子</strong>，即可高亮顯示受其影響的藥物欄。
+          </p>
+        </div>
+
+        <!-- 因子 × 藥物矩陣（由 caseMatrix.js 渲染） -->
+        <div data-aos="fade-up" data-aos-delay="120" class="mt-8 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+          <table id="case-matrix" class="w-full min-w-[780px] border-collapse text-sm"></table>
+        </div>
+        <div id="matrix-note" class="mt-4 rounded-xl bg-white p-4 text-sm text-slate-600 shadow-sm ring-1 ring-slate-100">
+          點擊上方任一臨床因子以查看說明。
+        </div>
+
+        <!-- 圖例 -->
+        <div class="mt-4 flex flex-wrap items-center justify-center gap-5 text-xs text-slate-500">
+          <span class="inline-flex items-center gap-1.5"><span class="inline-block h-3 w-3 rounded-full bg-emerald-500"></span>適用</span>
+          <span class="inline-flex items-center gap-1.5"><span class="inline-block h-3 w-3 rounded-full bg-amber-400"></span>謹慎</span>
+          <span class="inline-flex items-center gap-1.5"><span class="inline-block h-3 w-3 rounded-full bg-red-500"></span>不適用／避免</span>
+        </div>
+
+        <!-- 雷達圖 -->
+        <div class="mx-auto mt-16 max-w-3xl">
+          <h3 data-aos="fade-up" class="text-center text-2xl font-black text-slate-800 sm:text-3xl">
+            四種主要選項・雷達比較
+          </h3>
+          <p data-aos="fade-up" data-aos-delay="80" class="mt-3 text-center text-slate-600">
+            Dupilumab、Upadacitinib、Cyclosporine、Methotrexate 在六個面向的相對表現（1–5 分）。
+          </p>
+          <div data-aos="zoom-in" data-aos-delay="120" class="mt-8 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-8">
+            <canvas id="radar-chart" role="img" aria-label="四種主要治療選項的雷達比較圖"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Section 6：SDM 建議 ========== -->
+    <section id="sdm" class="bg-white py-20 dark:bg-slate-900">
+      <div class="mx-auto max-w-6xl px-4">
+        <div class="mx-auto max-w-3xl text-center">
+          <h2 data-aos="fade-up" class="text-3xl font-black text-slate-800 dark:text-slate-100 sm:text-4xl">
+            Shared Decision-<span class="text-gradient">Making 建議</span>
+          </h2>
+          <p data-aos="fade-up" data-aos-delay="80" class="mt-4 text-slate-600 dark:text-slate-300">
+            將臨床醫師的醫療判斷，與殷太太本身的優先考量整合在一起，共同做出最終決定。
+          </p>
+        </div>
+
+        <!-- 子區塊 A：SDM 框架 -->
+        <div class="mt-12">
+          <h3 data-aos="fade-up" class="text-center text-xl font-bold text-slate-700 dark:text-slate-200">SDM 三步驟框架</h3>
+          <div class="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
+            <div data-aos="fade-up" data-aos-delay="0" class="rounded-2xl border border-slate-100 bg-slate-50 p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+              <span class="flex h-11 w-11 items-center justify-center rounded-full bg-primary text-lg font-black text-white">1</span>
+              <h4 class="mt-4 font-bold text-slate-800 dark:text-slate-100">呈現選項</h4>
+              <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">把各合理選項的<strong>效益、風險、監測需求</strong>與不確定性一次說清楚，讓殷太太在充分知情下參與。</p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="120" class="rounded-2xl border border-slate-100 bg-slate-50 p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+              <span class="flex h-11 w-11 items-center justify-center rounded-full bg-accent text-lg font-black text-white">2</span>
+              <h4 class="mt-4 font-bold text-slate-800 dark:text-slate-100">整合偏好</h4>
+              <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">了解她的優先考量：<strong>對注射的接受度、抽血意願、對長期風險的容忍度</strong>，並與臨床禁忌一同權衡。</p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="240" class="rounded-2xl border border-slate-100 bg-slate-50 p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+              <span class="flex h-11 w-11 items-center justify-center rounded-full bg-slate-800 text-lg font-black text-white dark:bg-slate-600">3</span>
+              <h4 class="mt-4 font-bold text-slate-800 dark:text-slate-100">共同決定</h4>
+              <p class="mt-2 text-sm text-slate-600 dark:text-slate-300"><strong>Treat-to-target</strong>：共同設定目標與回診時點，例如約 <strong>16 週</strong>評估，以搔癢改善為主要目標。</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 子區塊 B：與殷太太的對話 -->
+        <div class="mt-16">
+          <h3 data-aos="fade-up" class="text-center text-xl font-bold text-slate-700 dark:text-slate-200">與殷太太的對話</h3>
+          <div class="mx-auto mt-8 max-w-3xl space-y-5">
+            <!-- 醫師 -->
+            <div data-aos="fade-right" class="flex items-start gap-3">
+              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-white">醫</span>
+              <div class="rounded-2xl rounded-tl-sm bg-blue-50 px-5 py-3 text-sm text-slate-700 shadow-sm dark:bg-slate-800 dark:text-slate-200">
+                殷太太，根據您的狀況，我建議考慮一種叫做 <strong>dupilumab</strong> 的 biologic 注射藥物，它對您這種反覆發作的異位性皮膚炎效果很好……
+              </div>
+            </div>
+            <!-- 病人 -->
+            <div data-aos="fade-left" class="flex items-start justify-end gap-3">
+              <div class="rounded-2xl rounded-tr-sm bg-emerald-50 px-5 py-3 text-sm text-slate-700 shadow-sm dark:bg-emerald-900/40 dark:text-emerald-50">
+                需要抽血監測嗎？我年紀大了，不太想常常跑醫院……
+              </div>
+              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-sm font-bold text-white">殷</span>
+            </div>
+            <!-- 醫師 -->
+            <div data-aos="fade-right" class="flex items-start gap-3">
+              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-white">醫</span>
+              <div class="rounded-2xl rounded-tl-sm bg-blue-50 px-5 py-3 text-sm text-slate-700 shadow-sm dark:bg-slate-800 dark:text-slate-200">
+                這個藥的好處正是<strong>不需要定期抽血</strong>，也<strong>不會影響您的腎功能</strong>，對您目前的腎臟狀況特別合適。
+              </div>
+            </div>
+            <!-- 病人 -->
+            <div data-aos="fade-left" class="flex items-start justify-end gap-3">
+              <div class="rounded-2xl rounded-tr-sm bg-emerald-50 px-5 py-3 text-sm text-slate-700 shadow-sm dark:bg-emerald-900/40 dark:text-emerald-50">
+                那注射會不會很麻煩？多久打一次？
+              </div>
+              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-sm font-bold text-white">殷</span>
+            </div>
+            <!-- 醫師 -->
+            <div data-aos="fade-right" class="flex items-start gap-3">
+              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-white">醫</span>
+              <div class="rounded-2xl rounded-tl-sm bg-blue-50 px-5 py-3 text-sm text-slate-700 shadow-sm dark:bg-slate-800 dark:text-slate-200">
+                <strong>每兩週皮下注射一次</strong>，我們護理師可以教您或家人操作，非常安全。我們也會在大約 16 週時一起評估搔癢與病灶的改善。
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 子區塊 C：最終推薦 -->
+        <div class="mt-16">
+          <h3 data-aos="fade-up" class="text-center text-xl font-bold text-slate-700 dark:text-slate-200">最終推薦</h3>
+
+          <!-- 首選大卡 -->
+          <div data-aos="fade-up" class="mt-8 overflow-hidden rounded-3xl border-2 border-emerald-300 bg-gradient-to-br from-emerald-50 to-white shadow-lg dark:border-emerald-700 dark:from-emerald-900/40 dark:to-slate-900">
+            <div class="grid gap-6 p-8 md:grid-cols-2">
+              <div>
+                <span class="inline-block rounded-full bg-emerald-500 px-3 py-1 text-xs font-bold text-white">★ 首選方案</span>
+                <h4 class="mt-3 text-3xl font-black text-slate-800 dark:text-slate-100">Dupilumab</h4>
+                <p class="mt-1 text-sm font-semibold text-emerald-700 dark:text-emerald-300">anti–IL-4Rα biologic・每 2 週皮下注射</p>
+                <div class="mt-5 rounded-xl bg-white/70 p-4 text-sm dark:bg-slate-800/60">
+                  <p class="font-bold text-slate-700 dark:text-slate-200">須一併告知的取捨</p>
+                  <p class="mt-1 text-slate-600 dark:text-slate-300">每 2 週皮下注射；可能出現 conjunctivitis 與臉／頸部發紅，但多可處理、整體耐受良好。</p>
+                </div>
+              </div>
+              <div>
+                <p class="font-bold text-slate-700 dark:text-slate-200">為何最符合殷太太</p>
+                <ul class="mt-3 space-y-2.5 text-sm text-slate-700 dark:text-slate-200">
+                  <li class="flex items-start gap-2"><svg class="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-7.5 7.5a1 1 0 01-1.4 0L3.3 9.7a1 1 0 011.4-1.4l3.1 3.1 6.8-6.8a1 1 0 011.4 0z" clip-rule="evenodd"/></svg>年長友善：在 ≥80 歲病人仍有效且耐受良好</li>
+                  <li class="flex items-start gap-2"><svg class="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-7.5 7.5a1 1 0 01-1.4 0L3.3 9.7a1 1 0 011.4-1.4l3.1 3.1 6.8-6.8a1 1 0 011.4 0z" clip-rule="evenodd"/></svg>不經腎清除、無須劑量調整（適合 eGFR 53）</li>
+                  <li class="flex items-start gap-2"><svg class="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-7.5 7.5a1 1 0 01-1.4 0L3.3 9.7a1 1 0 011.4-1.4l3.1 3.1 6.8-6.8a1 1 0 011.4 0z" clip-rule="evenodd"/></svg>無 boxed warning、無例行抽血（監測負擔低）</li>
+                  <li class="flex items-start gap-2"><svg class="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-7.5 7.5a1 1 0 01-1.4 0L3.3 9.7a1 1 0 011.4-1.4l3.1 3.1 6.8-6.8a1 1 0 011.4 0z" clip-rule="evenodd"/></svg>type-2 phenotype（IgE 684、eos 10.2%）提供堅實機轉理由</li>
+                  <li class="flex items-start gap-2"><svg class="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-7.5 7.5a1 1 0 01-1.4 0L3.3 9.7a1 1 0 011.4-1.4l3.1 3.1 6.8-6.8a1 1 0 011.4 0z" clip-rule="evenodd"/></svg>藥物交互作用少，適合多重共病與多重用藥</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- 備選 + 應避免 -->
+          <div class="mt-6 grid gap-6 lg:grid-cols-2">
+            <!-- 備選方案 -->
+            <div data-aos="fade-up" class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+              <h4 class="font-bold text-slate-800 dark:text-slate-100">備選方案</h4>
+              <div class="mt-4 space-y-4">
+                <div class="rounded-xl bg-slate-50 p-4 dark:bg-slate-700/50">
+                  <p class="font-semibold text-primary dark:text-blue-300">Tralokinumab <span class="text-xs font-normal text-slate-500 dark:text-slate-400">anti–IL-13</span></p>
+                  <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">同為 IL-13 選擇性、同樣無 boxed warning；若她偏好或無法耐受 dupilumab，是合理選擇。</p>
+                </div>
+                <div class="rounded-xl bg-slate-50 p-4 dark:bg-slate-700/50">
+                  <p class="font-semibold text-accent dark:text-cyan-300">NB-UVB phototherapy <span class="text-xs font-normal text-slate-500 dark:text-slate-400">非藥物</span></p>
+                  <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">若她傾向避免全身性藥物且能配合頻繁回診照光，可作為非免疫抑制替代方案。</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 應避免 -->
+            <div data-aos="fade-up" data-aos-delay="80" class="rounded-2xl border-2 border-red-200 bg-red-50/50 p-6 shadow-sm dark:border-red-800 dark:bg-red-950/30">
+              <h4 class="flex items-center gap-2 font-bold text-red-700 dark:text-red-300"><span>✕</span>一般應避免或須極謹慎</h4>
+              <div class="mt-4 space-y-4">
+                <div class="rounded-xl bg-white p-4 dark:bg-slate-800">
+                  <p class="font-semibold text-slate-800 dark:text-slate-100">Cyclosporine</p>
+                  <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">具 nephrotoxicity 與升壓作用；於其 eGFR 53 與未控之高血壓應避免使用。</p>
+                </div>
+                <div class="rounded-xl bg-white p-4 dark:bg-slate-800">
+                  <p class="font-semibold text-slate-800 dark:text-slate-100">JAK inhibitors</p>
+                  <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">年齡 ≥65、diabetes、hypertension 與腎功能不全，使她落入 MACE／VTE／malignancy 高風險族群（EMA 建議限制 ≥65 歲使用）；僅在 biologics 失敗或禁忌時保留。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Section 6.5：互動答題練習 ========== -->
+    <section id="quiz" class="dark-fallback bg-white py-20">
+      <div class="mx-auto max-w-3xl px-4">
+        <div class="text-center">
+          <h2 data-aos="fade-up" class="text-3xl font-black text-slate-800 sm:text-4xl">
+            互動<span class="text-gradient">答題練習</span>
+          </h2>
+          <p data-aos="fade-up" data-aos-delay="80" class="mt-4 text-slate-600">
+            整理自歷屆醫學系國考題（共 5 題）。點選選項即可即時看到答案與解析。
+          </p>
+        </div>
+
+        <!-- 計分列 -->
+        <div data-aos="fade-up" data-aos-delay="120" class="sticky top-20 z-10 mx-auto mt-8 flex max-w-md items-center justify-between gap-3 rounded-full border border-slate-200 bg-white/90 px-5 py-3 text-sm shadow-sm backdrop-blur">
+          <span class="font-semibold text-slate-600">作答進度</span>
+          <span class="text-slate-600"><span id="quiz-answered" class="font-black text-primary">0</span> / <span id="quiz-total">5</span> 題</span>
+          <span class="text-slate-600">答對 <span id="quiz-score" class="font-black text-emerald-600">0</span></span>
+        </div>
+
+        <!-- 題目容器（由 quiz.js 渲染） -->
+        <div id="quiz-mount" class="mt-8 space-y-6"></div>
+
+        <!-- 重新作答 -->
+        <div class="mt-8 text-center">
+          <button id="quiz-reset" class="rounded-full border border-slate-300 px-5 py-2.5 text-sm font-semibold text-slate-600 transition hover:bg-slate-100">重新作答</button>
+        </div>
+
+        <p class="mt-4 text-center text-xs text-slate-400">題目與解析整理自歷屆國考題，僅供教學複習之用。</p>
+      </div>
+    </section>
+
+    <!-- ========== Section 7：參考文獻 ========== -->
+    <section id="references" class="bg-slate-50 py-20 dark:bg-slate-950">
+      <div class="mx-auto max-w-4xl px-4">
+        <div class="text-center">
+          <h2 data-aos="fade-up" class="text-3xl font-black text-slate-800 dark:text-slate-100 sm:text-4xl">參考文獻</h2>
+          <p data-aos="fade-up" data-aos-delay="80" class="mt-4 text-slate-600 dark:text-slate-300">11 篇主要引用文獻（APA 格式，僅列第一作者）。點擊展開完整清單。</p>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="120" class="mx-auto mt-8 rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-900">
+          <button class="accordion-trigger flex w-full items-center justify-between rounded-2xl px-6 py-4 text-left font-bold text-slate-800 dark:text-slate-100" aria-expanded="false">
+            <span>展開 11 篇參考文獻</span>
+            <svg class="accordion-icon h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+          </button>
+          <div class="accordion-panel">
+            <ol class="space-y-4 px-6 pb-6 pt-2 text-sm">
+              <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-bold text-white">1</span><p class="text-slate-600 dark:text-slate-300">Chan, T. C. (2021). Taiwanese Dermatological Association consensus for the management of atopic dermatitis: A 2020 update. <em>Journal of the Formosan Medical Association, 120</em>(1), 429–442. <a href="https://doi.org/10.1016/j.jfma.2020.06.008" target="_blank" rel="noopener" class="text-accent hover:underline">https://doi.org/10.1016/j.jfma.2020.06.008</a></p></li>
+              <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-bold text-white">2</span><p class="text-slate-600 dark:text-slate-300">Davis, D. M. R. (2024). Guidelines of care for the management of atopic dermatitis in adults with phototherapy and systemic therapies. <em>Journal of the American Academy of Dermatology, 90</em>(2), e43–e56. <a href="https://doi.org/10.1016/j.jaad.2023.08.102" target="_blank" rel="noopener" class="text-accent hover:underline">https://doi.org/10.1016/j.jaad.2023.08.102</a></p></li>
+              <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-bold text-white">3</span><p class="text-slate-600 dark:text-slate-300">Drucker, A. M. (2020). Systemic immunomodulatory treatments for patients with atopic dermatitis: A systematic review and network meta-analysis. <em>JAMA Dermatology, 156</em>(6), 659–667. <a href="https://doi.org/10.1001/jamadermatol.2020.0796" target="_blank" rel="noopener" class="text-accent hover:underline">https://doi.org/10.1001/jamadermatol.2020.0796</a></p></li>
+              <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-bold text-white">4</span><p class="text-slate-600 dark:text-slate-300">Simpson, E. L. (2023). Tralokinumab therapy for moderate-to-severe atopic dermatitis: Clinical outcomes with targeted IL-13 inhibition. <em>Allergy, 78</em>(11), 2875–2891. <a href="https://doi.org/10.1111/all.15811" target="_blank" rel="noopener" class="text-accent hover:underline">https://doi.org/10.1111/all.15811</a></p></li>
+              <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-bold text-white">5</span><p class="text-slate-600 dark:text-slate-300">Teixeira, C. (2024). IL-13 inhibition in the treatment of atopic dermatitis – New and emerging biologic agents. <em>Journal of International Medical Research, 52</em>(10). <a href="https://doi.org/10.1177/03000605241286832" target="_blank" rel="noopener" class="text-accent hover:underline">https://doi.org/10.1177/03000605241286832</a></p></li>
+              <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-bold text-white">6</span><p class="text-slate-600 dark:text-slate-300">Silverberg, J. I. (2023). Efficacy and safety of dupilumab maintained in adults ≥ 60 years of age with moderate-to-severe atopic dermatitis. <em>American Journal of Clinical Dermatology, 24</em>(3), 469–483. <a href="https://doi.org/10.1007/s40257-022-00754-4" target="_blank" rel="noopener" class="text-accent hover:underline">https://doi.org/10.1007/s40257-022-00754-4</a></p></li>
+              <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-bold text-white">7</span><p class="text-slate-600 dark:text-slate-300">Patruno, C. (2021). Effectiveness and safety of long-term dupilumab treatment in elderly patients with atopic dermatitis: A multicenter real-life observational study. <em>American Journal of Clinical Dermatology, 22</em>(4), 581–586. <a href="https://doi.org/10.1007/s40257-021-00597-5" target="_blank" rel="noopener" class="text-accent hover:underline">https://doi.org/10.1007/s40257-021-00597-5</a></p></li>
+              <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-bold text-white">8</span><p class="text-slate-600 dark:text-slate-300">Silverberg, J. I. (2024). Combining treat-to-target principles and shared decision-making: International expert consensus-based recommendations with a novel concept for minimal disease activity criteria in atopic dermatitis. <em>Journal of the European Academy of Dermatology and Venereology, 38</em>(9), 1689–1704. <a href="https://doi.org/10.1111/jdv.20229" target="_blank" rel="noopener" class="text-accent hover:underline">https://doi.org/10.1111/jdv.20229</a></p></li>
+              <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-bold text-white">9</span><p class="text-slate-600 dark:text-slate-300">Levine, J. (2026). Decision-making factors for systemic therapies in atopic dermatitis: A clinical review. <em>Journal of Cutaneous Medicine and Surgery</em>. <a href="https://doi.org/10.1177/17103568261423754" target="_blank" rel="noopener" class="text-accent hover:underline">https://doi.org/10.1177/17103568261423754</a></p></li>
+              <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-bold text-white">10</span><p class="text-slate-600 dark:text-slate-300">Yim, H. J. (2024). Comparison of old and new systemic treatments for moderate to severe atopic dermatitis. <em>Current Allergy and Asthma Reports, 24</em>(5), 289–301. <a href="https://doi.org/10.1007/s11882-024-01145-x" target="_blank" rel="noopener" class="text-accent hover:underline">https://doi.org/10.1007/s11882-024-01145-x</a></p></li>
+              <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-bold text-white">11</span><p class="text-slate-600 dark:text-slate-300">Wollenberg, A. (2025). European Guideline (EuroGuiDerm) on atopic eczema: Living update. <em>Journal of the European Academy of Dermatology and Venereology, 39</em>(9), 1537–1566. <a href="https://doi.org/10.1111/jdv.20639" target="_blank" rel="noopener" class="text-accent hover:underline">https://doi.org/10.1111/jdv.20639</a></p></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer id="footer" class="border-t border-slate-200 bg-slate-100 dark:border-slate-800 dark:bg-slate-950">
+    <div class="mx-auto max-w-6xl px-4 py-10">
+      <div class="grid gap-8 md:grid-cols-3">
+        <div>
+          <p class="text-lg font-black text-slate-800 dark:text-slate-100">AD 治療決策指引</p>
+          <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">異位性皮膚炎全身性治療與 Shared Decision-Making 醫學教育網站。</p>
+        </div>
+        <div>
+          <p class="text-sm font-bold text-slate-700 dark:text-slate-200">章節導覽</p>
+          <ul class="mt-2 space-y-1 text-sm text-slate-500 dark:text-slate-400">
+            <li><a href="#mechanism" class="hover:text-accent">病理機轉</a></li>
+            <li><a href="#treatments" class="hover:text-accent">治療選項</a></li>
+            <li><a href="#comparison" class="hover:text-accent">藥物比較</a></li>
+            <li><a href="#case-analysis" class="hover:text-accent">殷太太個案分析</a></li>
+            <li><a href="#sdm" class="hover:text-accent">SDM 建議</a></li>
+            <li><a href="#references" class="hover:text-accent">參考文獻</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-sm font-bold text-slate-700 dark:text-slate-200">教學註記與免責聲明</p>
+          <p class="mt-2 text-sm leading-relaxed text-slate-500 dark:text-slate-400">
+            本網站僅供醫學教育與個案式學習之用，<strong>不構成診療建議</strong>。實務上最終選擇應由主治醫師與病人共同決定，並考量在地給付／藥物可及性，且須依所選藥物完成完整的治療前篩檢。
+          </p>
+        </div>
+      </div>
+      <div class="mt-8 border-t border-slate-200 pt-6 text-center text-xs text-slate-400 dark:border-slate-800 dark:text-slate-500">
+        病理藥理小組討論・單元十四 皮膚系統疾病 ・ © 2026
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== App Entry ===== -->
+  <script type="module" src="./src/js/main.js"></script>
+</body>
+</html>
