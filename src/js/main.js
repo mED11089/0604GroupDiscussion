@@ -13,15 +13,27 @@ import { initRadarChart } from './components/radarChart.js';
 import { initQuiz } from './components/quiz.js';
 
 /**
- * 讓「圖集」連結指向與圖片相同的解析後網址（含 Vite base）。
- * Vite 會為 <img src> 加上 base 前綴，但不會處理 <a href>；於子路徑
- * 部署（GitHub Pages）時，原始的 /images/... 連結會 404。改用 img.src
- * （已解析的絕對網址）即可在 dev 與 production 皆正確開啟。
+ * 點圖看大圖：點擊任一 <figure> 內的圖片（含主機轉圖、演算法圖與所有圖集），
+ * 以新分頁開啟該圖片「已解析的網址」（img.src 已含 Vite base 前綴）。
+ *
+ * Vite 會為 <img src> 加上 base，但不會處理 <a href>；於子路徑部署
+ * （GitHub Pages）時直接點原始的 /images/... 連結會 404。因此這裡一律改用
+ * img.src，並對包在 <a> 內的圖片 preventDefault，避免錯誤的原生導向。
  */
-function syncGalleryLinks() {
-  document.querySelectorAll('figure a > img').forEach((img) => {
-    const link = img.parentElement;
-    if (link && link.tagName === 'A') link.setAttribute('href', img.src);
+function initImageZoom() {
+  document.querySelectorAll('figure img').forEach((img) => {
+    img.classList.add('cursor-zoom-in');
+    if (!img.title) img.title = '點擊看大圖';
+  });
+
+  document.addEventListener('click', (e) => {
+    const figure = e.target.closest('figure');
+    if (!figure || e.target.closest('figcaption')) return;
+    const img = figure.querySelector('img');
+    const url = img && (img.currentSrc || img.src);
+    if (!url) return;
+    e.preventDefault(); // 阻止包在 <a> 內圖片的錯誤原生導向
+    window.open(url, '_blank', 'noopener');
   });
 }
 
@@ -47,7 +59,7 @@ function bootstrap() {
   initCaseMatrix();
   initRadarChart();
   initQuiz();
-  syncGalleryLinks();
+  initImageZoom();
   // TODO: 後續章節元件於此依序掛載
 }
 
